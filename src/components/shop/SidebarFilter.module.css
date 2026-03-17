@@ -1,0 +1,231 @@
+.sidebar {
+  position: sticky;
+  top: 100px; /* stick slightly below header */
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 20px;
+  background-color: var(--background);
+}
+
+/* Hide scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--surface-alt);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.section {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordionBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.icon {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.content {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--foreground);
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.labelText {
+  font-size: 1rem;
+  color: var(--foreground);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.sizeBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sizeBtn:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.colorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-bottom: 20px;
+}
+
+.colorBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--surface-alt);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.colorBtn:hover {
+  transform: scale(1.15);
+  border-color: var(--border);
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    height: auto;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.25rem;
+  }
+  .accordionBtn {
+    font-size: 1rem;
+    padding: 15px 0;
+  }
+  .labelText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  .clearBtn {
+    font-size: 0.75rem;
+  }
+  .accordionBtn {
+    font-size: 0.95rem;
+  }
+  .sizeBtn {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+  .colorBtn {
+    width: 28px;
+    height: 28px;
+  }
+  .checkbox {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 250px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  .title {
+    font-size: 0.95rem;
+  }
+  .clearBtn {
+    font-size: 0.7rem;
+  }
+  .accordionBtn {
+    font-size: 0.85rem;
+    padding: 10px 0;
+  }
+  .icon {
+    font-size: 1.2rem;
+  }
+  .labelText {
+    font-size: 0.75rem;
+  }
+  .sizeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sizeBtn {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
+  .colorBtn {
+    width: 24px;
+    height: 24px;
+  }
+  .checkboxLabel {
+    gap: 8px;
+  }
+  .content {
+    padding-bottom: 10px;
+  }
+}

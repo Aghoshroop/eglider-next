@@ -1,0 +1,218 @@
+.footer {
+  background-color: var(--foreground);
+  color: var(--background);
+  padding: 80px 0 40px;
+  border-top: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--background);
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--accent);
+}
+
+.newsletter {
+  display: flex;
+  border-bottom: 2px solid var(--background);
+  margin-top: 30px;
+  padding-bottom: 10px;
+}
+
+.newsletter input {
+  background: transparent;
+  border: none;
+  flex: 1;
+  color: var(--background);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  outline: none;
+}
+
+.newsletter input::placeholder {
+  color: var(--accent);
+}
+
+.newsletter button {
+  background: var(--background);
+  color: var(--foreground);
+  border: none;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  padding: 5px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+}
+
+.newsletter button:hover {
+  background: var(--accent);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.column h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: var(--background);
+}
+
+.column a {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
+
+.column a:hover {
+  color: var(--background);
+  text-decoration: underline;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.legalLinks a:hover {
+  color: var(--background);
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .links {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+  .links {
+    grid-template-columns: 1fr;
+  }
+  .newsletter {
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: none;
+  }
+  .newsletter input {
+    border-bottom: 2px solid var(--background);
+    padding-bottom: 8px;
+  }
+  .newsletter button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  .column h3 {
+    font-size: 1.2rem;
+  }
+  .column a {
+    font-size: 0.8rem;
+  }
+  .legalLinks {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 250px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+  }
+  .newsletter input {
+    font-size: 0.85rem;
+  }
+  .newsletter button {
+    font-size: 0.85rem;
+  }
+  .column h3 {
+    font-size: 1rem;
+  }
+  .column a {
+    font-size: 0.75rem;
+  }
+  .bottom {
+    font-size: 0.65rem;
+  }
+}

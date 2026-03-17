@@ -1,0 +1,251 @@
+.featuredSection {
+  padding: 120px 0;
+  background-color: var(--background);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: left;
+  gap: 20px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 320px;
+  gap: 20px;
+}
+
+.loader {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 40px 0;
+  grid-column: 1 / -1;
+}
+
+/* Base card styling */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  display: flex;
+}
+
+/* Asymmetrical Bento layout assuming 4 items */
+.card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.card:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.card:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.card:nth-child(4) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.08); /* Cinematic zoom */
+}
+
+/* Gradient block to ensure text readability */
+.overlayGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(10, 10, 12, 0.8) 0%, rgba(10, 10, 12, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* The dark overlay overlay that darkens card slightly on hover */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.card:hover::after {
+  opacity: 1;
+}
+
+.detailsOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  z-index: 3;
+}
+
+.category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.productName {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.card:nth-child(1) .productName {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.price {
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 6px;
+  font-family: var(--font-sans);
+}
+
+.highlightBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.exploreArrow {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(20px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 4;
+}
+
+.card:hover .exploreArrow {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+  }
+  
+  /* Resetting everything to default 2x2 grid for tablet */
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .card:nth-child(1) .productName {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredSection {
+    padding: 80px 0;
+  }
+  .grid {
+    gap: 16px;
+  }
+  .detailsOverlay {
+    padding: 20px;
+  }
+  .exploreArrow {
+    bottom: 20px;
+    right: 20px;
+    transform: none; /* Always show or keep minimal */
+    opacity: 1;
+    background: transparent;
+    color: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 350px;
+  }
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}

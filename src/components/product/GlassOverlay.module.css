@@ -1,0 +1,261 @@
+/* The primary Glass Card Container */
+.glassCard {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.65); /* Semi-transparent white */
+  backdrop-filter: blur(24px); /* Extreme blur for glassmorphism */
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 
+              0 0 0 1px rgba(255, 255, 255, 0.4) inset; /* Inner glow */
+  font-family: var(--font-sans);
+}
+
+/* Typography Structure */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.categoryLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  font-weight: 600;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars {
+  display: flex;
+  color: #111;
+  gap: 2px;
+}
+
+.reviewCount {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.productTitle {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.productPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+/* Specific Section Blocks */
+.sectionBlock {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Color Selector */
+.colorSwatches {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.colorSwatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.1);
+}
+
+.colorSwatchActive {
+  border: 2px solid #000;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #000; /* Ring effect */
+}
+
+/* Size Selector */
+.sizeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.sizeGuideBtn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.sizeBtn {
+  padding: 12px 0;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sizeBtn:hover {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.sizeBtnActive {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Actions Row (Quantity, Cart, Wishlist) */
+.actionRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  width: 110px;
+  padding: 4px;
+}
+
+.qtyBtn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.qtyBtn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.qtyValue {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.addToBagBtn {
+  flex-grow: 1;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.wishlistBtn {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.wishlistBtn:hover {
+  border-color: #000;
+}
+
+.wishlisted {
+  background: #fdf2f8;
+  border-color: #db2777;
+  color: #db2777;
+}
+
+/* Accordion Area Default */
+.accordionContainer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 0;
+  cursor: pointer;
+}
+
+.accordionTitle {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Mobile Breakpoints */
+@media (max-width: 768px) {
+  .glassCard {
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* Mobile glass effect */
+    background: rgba(255, 255, 255, 0.85); 
+  }
+}

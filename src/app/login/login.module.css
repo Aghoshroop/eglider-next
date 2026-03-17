@@ -1,0 +1,133 @@
+.loginContainer {
+  min-height: calc(100vh - 80px); /* minus header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+}
+
+.loginCard {
+  background: #fff;
+  width: 100%;
+  max-width: 450px;
+  padding: 50px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.brand h2 {
+  font-family: var(--font-oswald);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #111;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.brand p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputGroup input {
+  padding: 12px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-inter);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #fafafa;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 16px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.submitBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid #fecaca;
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.link {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .loginCard {
+    padding: 40px 20px;
+  }
+}

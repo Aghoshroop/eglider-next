@@ -1,0 +1,193 @@
+.visualContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The new soft gray rounded canvas */
+.greyCanvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* A tall, elegant aspect ratio */
+  background-color: #f5f5f5; /* Soft gray */
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fills the canvas seamlessly */
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.productImage {
+  object-fit: cover;
+  padding: 0; 
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* OVERLAY CONTROLS */
+.sliderControls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through empty space */
+}
+
+.arrowBtn {
+  pointer-events: auto; /* Re-enable clicks on buttons */
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #111;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.arrowBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* THUMBNAIL TRACK - INSIDE CANVAS */
+.thumbnailTrack {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+  padding: 4px; /* Slight padding to catch any scrollbars on tiny devices if needed */
+  max-width: 90%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.thumbnailTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnailBtn {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  border: 2px solid transparent; 
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #eaeaea; /* Slightly darker than canvas to show if transparent image */
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.thumbnailBtn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.thumbnailActive {
+  opacity: 1;
+  border-color: #111;
+  background-color: #fff;
+}
+
+.thumbnailImage {
+  object-fit: cover;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .greyCanvas {
+    aspect-ratio: auto;
+    height: 60vh;
+  }
+  
+  .productImage {
+    padding: 2rem 1rem 5rem 1rem;
+  }
+  
+  .thumbnailBtn {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greyCanvas {
+    height: 50vh;
+  }
+  .thumbnailBtn {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .greyCanvas {
+    border-radius: 8px;
+    height: 45vh;
+  }
+  .arrowBtn {
+    width: 36px;
+    height: 36px;
+  }
+  .sliderControls {
+    padding: 0 0.5rem;
+  }
+  .thumbnailBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+  }
+  .thumbnailTrack {
+    bottom: 12px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 250px) {
+  .greyCanvas {
+    height: 250px;
+    border-radius: 4px;
+  }
+  .arrowBtn {
+    width: 28px;
+    height: 28px;
+  }
+  .thumbnailBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+  }
+  .thumbnailTrack {
+    bottom: 8px;
+    gap: 6px;
+  }
+}

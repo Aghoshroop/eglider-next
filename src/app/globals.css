@@ -1,25 +1,30 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #000000; /* Stark black */
+  --primary: #000000; /* Black for primary actions */
+  --accent: #e5e5e5; /* Light grey for contrast areas */
+  --surface: #f5f5f5; /* Off-white for product cards */
+  --surface-alt: #ececec;
+  --border: #000000; /* Sharp black borders */
+  
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-oswald), sans-serif; /* Using Oswald for headings */
+  
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +40,158 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.text-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealUp 0.8s var(--transition-smooth) forwards;
+}
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base utility animation for elements coming into view */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.glass {
+  background: var(--background);
+  border-bottom: 2px solid var(--border);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--foreground);
+  border-radius: 0;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background-color: transparent;
+  color: var(--foreground);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--foreground);
+  border-radius: 0;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background); 
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; 
+}
+
+/* =========================================================================
+   ULTIMATE RESPONSIVENESS (200px - 768px)
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 4%;
+  }
+  .layout-content {
+    padding-bottom: 65px; /* Account for height of MobileBottomNav */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 3%;
+  }
+  .btn-primary, .btn-outline {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 12px;
+  }
+  .btn-primary, .btn-outline {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 250px) {
+  .container {
+    padding: 0 8px;
+  }
+  html, body {
+    font-size: 14px; /* Base font shrink */
+  }
+  .btn-primary, .btn-outline {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-width: 1px;
   }
 }

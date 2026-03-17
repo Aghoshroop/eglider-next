@@ -1,0 +1,140 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff; /* White base per clean requirement */
+}
+
+.cleanContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.crumbLink {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crumbLink:hover {
+  color: #111;
+}
+
+.crumbSep {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.crumbCurrent {
+  color: #111;
+  font-weight: 500;
+}
+
+/* 50/50 Grid Layout */
+.productSplitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+/* Left/Right Columns */
+.imageColumn {
+  width: 100%;
+}
+
+.detailsColumn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Ratings & Reviews Placeholder */
+.reviewsSection {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid #eaeaea;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.reviewsPlaceholder {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.bigRatingWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.bigRatingNum {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.reviewBars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+/* Related Products Layer */
+.relatedSection {
+  width: 100%;
+  background-color: #fff;
+}
+
+/* Responsive constraints */
+@media (max-width: 1024px) {
+  .productSplitGrid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cleanContainer {
+    padding: 20px 15px;
+  }
+  
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  
+  .productSplitGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .detailsColumn {
+    justify-content: center;
+  }
+  
+  .reviewsPlaceholder {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,151 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f7; /* Light industrial background for admin */
+  font-family: var(--font-sans);
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 280px;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+}
+
+.brand {
+  padding: 40px 30px;
+  border-bottom: 1px solid #222;
+}
+
+.brand h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.brand span {
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 15px;
+  flex-grow: 1;
+}
+
+.navLink {
+  padding: 15px 20px;
+  color: #aaaaaa;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.active {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 700;
+}
+
+.active:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.sidebarFooter {
+  padding: 30px;
+  border-top: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.returnLink {
+  color: #888;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.returnLink:hover {
+  color: #ffffff;
+}
+
+.logoutBtn {
+  background: none;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Main Content Area */
+.mainContent {
+  margin-left: 280px; /* offset for sidebar */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 40px;
+}
+
+.userSection {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.pageContent {
+  padding: 40px;
+  max-width: 1400px;
+}
+
+@media (max-width: 768px) {
+  .adminLayout {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .mainContent {
+    margin-left: 0;
+  }
+  .topbar {
+    display: none; /* Hide topbar on mobile for cleaner look */
+  }
+}

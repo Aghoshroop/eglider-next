@@ -1,0 +1,168 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 20px 30px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+.formContainer {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.select {
+  padding: 15px;
+  border: 2px solid #e5e5e5;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  background-color: #fafafa;
+  color: #000;
+  appearance: none;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #000;
+  background-color: #fff;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.cancelBtn {
+  background: none;
+  border: none;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 20px;
+  text-transform: uppercase;
+}
+
+.saveBtn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+}
+
+.saveBtn:hover {
+  background-color: #333;
+}
+
+.addTagBtn {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-weight: 600;
+  padding: 0 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.addTagBtn:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 32px;
+}
+
+.tagPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.tagPill button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.tagPill button:hover {
+  color: #ef4444;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+}

@@ -1,0 +1,311 @@
+.detailsPane {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 4rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  font-family: var(--font-sans);
+  color: #111;
+}
+
+.categoryPill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-sans); /* Reference image uses a modern sans for the title */
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+}
+
+/* Delivery Bar */
+.deliveryBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.deliveryBar b {
+  color: #111;
+  font-weight: 600;
+}
+
+/* Size Pill Selector */
+.sizeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.sizeGrid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sizePill {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sizePill:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.activeSize {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.activeSize:hover {
+  color: #fff;
+}
+
+/* Action Buttons */
+.actionRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.addToCartBtn {
+  flex-grow: 1;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addToCartBtn:hover {
+  opacity: 0.85;
+}
+
+.wishlistBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #111;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.wishlistBtn:hover {
+  border-color: #111;
+}
+
+/* Accordions */
+.accordions {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionGroup {
+  border-top: 1px solid #e5e5e5;
+}
+
+.accordionGroup:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.accordionTrigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 24px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.contentOpen {
+  max-height: 500px;
+  opacity: 1;
+  margin-bottom: 24px;
+}
+
+.shippingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.shipItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shipLabel {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.shipValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #111;
+}
+
+@media (max-width: 1024px) {
+  .detailsPane {
+    padding: 0 1rem 3rem 1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .price {
+    font-size: 1.25rem;
+  }
+  .actionRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .addToCartBtn {
+    padding: 16px;
+  }
+  .wishlistBtn {
+    width: 100%;
+    border-radius: 999px; /* Convert circle to full width pill */
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .price {
+    font-size: 1.15rem;
+  }
+  .categoryPill {
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    margin-bottom: 16px;
+  }
+  .deliveryBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sizePill {
+    width: 48px;
+    height: 48px;
+    font-size: 0.85rem;
+  }
+  .accordionTrigger {
+    padding: 16px 0;
+    font-size: 0.9rem;
+  }
+  .shippingGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 250px) {
+  .detailsPane {
+    padding: 0 0.5rem 2rem 0.5rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .price {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  .sizeGrid {
+    gap: 6px;
+  }
+  .sizePill {
+    width: 40px;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+  .addToCartBtn {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+  .wishlistBtn {
+    height: 42px;
+  }
+  .accordionTrigger {
+    font-size: 0.85rem;
+    padding: 12px 0;
+  }
+  .shipLabel, .shipValue {
+    font-size: 0.7rem;
+  }
+}

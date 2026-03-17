@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Global admin check function
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'egliderenterprise@gmail.com';
+    }
+
+    // Products: Anyone can view the shop, only YOU can add/edit products
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // User Accounts & Wishlists: A user can read/write their OWN profile, Admin can read globally
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      allow write: if request.auth != null && request.auth.uid == userId;
+
+      match /private/{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Newsletter Subscribers: Anyone can submit their email, only Admin can read the list
+    match /newsletter_subscribers/{docId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+    
+    // Fallback: Default lock
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

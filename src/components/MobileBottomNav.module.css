@@ -1,0 +1,90 @@
+.bottomNav {
+  display: none; /* Hidden by default on desktop */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background-color: var(--background); /* Solid bright theme background */
+  border-top: 1px solid var(--border);
+  z-index: 9999;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #777; /* Default inactive color */
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  padding: 8px 0;
+}
+
+.tab:hover {
+  color: #333;
+}
+
+.iconWrapper {
+  margin-bottom: 4px;
+}
+
+.iconWrapper svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Active State */
+.active {
+  color: var(--foreground); /* Black color for active */
+}
+
+.active .iconWrapper svg {
+  fill: currentColor;
+  stroke-width: 0;
+}
+
+/* Since the 'Shop' basket icon and 'Tech' waveform don't fill cleanly, 
+   we selectively prevent fill on them while making them thicker when active. */
+.active:nth-child(2) .iconWrapper svg,
+.active:nth-child(3) .iconWrapper svg,
+.active:nth-child(4) .iconWrapper svg,
+.active:nth-child(1) .iconWrapper svg {
+  fill: none;
+  stroke-width: 2.5; 
+}
+
+/* User account circle icon can be filled when active */
+.active:nth-child(5) .iconWrapper svg {
+  fill: currentColor;
+  stroke-width: 0;
+}
+
+/* Display ONLY on mobile devices */
+@media (max-width: 768px) {
+  .bottomNav {
+    display: flex; /* Activate flexbox on mobile */
+  }
+}
+
+/* Extra small devices logic */
+@media (max-width: 360px) {
+  .iconWrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+  .label {
+    font-size: 0.6rem;
+  }
+}

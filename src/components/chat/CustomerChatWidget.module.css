@@ -1,0 +1,362 @@
+.chatWrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  font-family: var(--font-inter);
+}
+
+.chatLauncher {
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #111;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.chatLauncher:hover {
+  transform: scale(1.05);
+  background-color: #000;
+}
+
+.chatWindow {
+  width: 350px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+}
+
+.chatHeader {
+  background-color: #111;
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.headerInfo h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerInfo p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.closeChat {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.closeChat:hover {
+  opacity: 1;
+}
+
+.chatBody {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.messageWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.wrapperUser {
+  justify-content: flex-end;
+}
+
+.wrapperAdmin {
+  justify-content: flex-start;
+}
+
+.message {
+  max-width: 85%;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.messageAdmin {
+  background-color: #fff;
+  color: #111;
+  border-radius: 4px 16px 16px 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+}
+
+.messageUser {
+  background-color: #111;
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+}
+
+.productBubble {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255,255,255,0.1);
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.productBubbleImage {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.productBubbleName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.chatFooter {
+  padding: 16px;
+  background-color: #fff;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0; /* Mathematical guarantee this footer NEVER gets squished or hidden */
+  box-sizing: border-box;
+  align-items: flex-end; /* Keeps send button at bottom when textarea grows */
+}
+
+.chatFooter textarea {
+  flex: 1;
+  min-width: 0; /* Let input shrink to 0 if needed to avoid blowing out container */
+  padding: 12px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-family: var(--font-inter);
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: auto;
+  max-height: 120px;
+  line-height: 1.4;
+}
+
+.chatFooter textarea:focus {
+  outline: none;
+  border-color: #111;
+  background-color: #fff;
+}
+
+.chatFooter button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.chatFooter button:hover:not(:disabled) {
+  background-color: #333;
+}
+
+.chatFooter button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .chatWrapper {
+    bottom: 80px; /* Lift above the 65px mobile bottom nav */
+    right: 20px;
+  }
+  
+  /* Absolute bounding box for the open chat */
+  .chatWrapper:not(:has(.chatLauncher)) {
+    top: 20px;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    height: auto;
+    width: auto;
+  }
+  
+  .chatWindow {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .chatWrapper {
+    bottom: 75px; 
+    right: 15px;
+  }
+
+  .chatWrapper:not(:has(.chatLauncher)) {
+    top: 15px;
+    bottom: 75px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .chatLauncher {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .chatWindow {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+  }
+  
+  .chatHeader {
+    padding: 12px 16px;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  .headerInfo h4 {
+    font-size: 0.95rem;
+  }
+  .message {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 250px) {
+  .chatWrapper {
+    bottom: 70px;
+    right: 10px;
+  }
+
+  .chatWrapper:not(:has(.chatLauncher)) {
+    top: 10px;
+    bottom: 70px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .chatLauncher {
+    width: 40px;
+    height: 40px;
+  }
+  .chatLauncher svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .chatWindow {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+  }
+  .chatHeader {
+    padding: 8px 12px;
+  }
+  .headerInfo {
+    gap: 8px;
+  }
+  .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+  .headerInfo h4 {
+    font-size: 0.85rem;
+  }
+  .headerInfo p {
+    font-size: 0.7rem;
+  }
+  .closeChat {
+    font-size: 1.4rem;
+  }
+  .chatBody {
+    padding: 10px;
+  }
+  .message {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  .chatFooter {
+    padding: 8px;
+    gap: 6px;
+  }
+  .chatFooter textarea {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  .chatFooter button {
+    padding: 0 12px;
+    font-size: 0.85rem;
+  }
+}

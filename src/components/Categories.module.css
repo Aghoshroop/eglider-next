@@ -1,0 +1,146 @@
+.categoriesSection {
+  padding: 80px 0;
+  background-color: var(--surface);
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: var(--foreground);
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 400px);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--surface);
+  height: 100%;
+}
+
+/* Make the first card span both rows */
+.card:nth-child(1) {
+  grid-row: 1 / -1;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.cardTitle {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  z-index: 2;
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.card:hover .image {
+  transform: scale(1.03);
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 400px); /* Keep stacked layout on medium tablets initially */
+  }
+}
+
+/* Asymmetrical Bento Grid for Mobile Devices */
+@media (max-width: 768px) {
+  .categoriesSection {
+    padding: 60px 0;
+  }
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto; /* Let content dictate height or fix aspect ratio below */
+    gap: 15px;
+  }
+  
+  .card {
+    height: auto;
+    aspect-ratio: 1; /* Squarish for the bottom two buttons */
+  }
+  
+  /* Make the first card span the entire row (Hero) */
+  .card:nth-child(1) {
+    grid-column: span 2;
+    aspect-ratio: 4/3; /* Slightly wider hero orientation */
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .overlay {
+    height: 50%; /* Give title more breathing room on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  .cardTitle {
+    font-size: 1.25rem;
+    bottom: 15px;
+    left: 15px;
+  }
+  .card:nth-child(1) {
+    aspect-ratio: 1; /* Make hero squarish on very narrow phones */
+  }
+}
+
+@media (max-width: 360px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  .grid {
+    gap: 10px;
+  }
+  .cardTitle {
+    font-size: 1rem;
+    bottom: 10px;
+    left: 10px;
+  }
+}
