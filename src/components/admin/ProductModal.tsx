@@ -334,10 +334,10 @@ export default function ProductModal({ isOpen, onClose, product }: ProductModalP
           </div>
 
           <div className={styles.modalFooter}>
-            <button type="button" onClick={onClose} className={styles.cancelBtn} disabled={isUploading}>Cancel</button>
+           
             <button type="submit" className={styles.saveBtn} disabled={isUploading}>
                {isUploading ? "Uploading & Saving..." : "Save Product"}
-            </button>
+            </button> <button type="button" onClick={onClose} className={styles.cancelBtn} disabled={isUploading}>Cancel</button>
           </div>
         </form>
       </div>

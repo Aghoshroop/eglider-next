@@ -14,11 +14,12 @@
 
 .modalContent {
   background-color: #ffffff;
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 600px;
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .modalHeader {
@@ -165,4 +166,55 @@
   height: 14px;
   border-radius: 50%;
   border: 1px solid #cbd5e1;
+}
+
+@media (max-width: 500px) {
+  .modalHeader {
+    padding: 15px;
+  }
+  .formContainer {
+    padding: 15px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .modalContent {
+    width: calc(100% - 16px);
+  }
+}
+
+@media (max-width: 300px) {
+  .modalHeader {
+    padding: 10px;
+  }
+  .modalHeader h2 {
+    font-size: 1.1rem;
+  }
+  .formContainer {
+    padding: 10px;
+  }
+  .select,
+  .formContainer input,
+  .formContainer textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .modalFooter {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cancelBtn, .saveBtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .tagPill {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+  .addTagBtn {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
 }

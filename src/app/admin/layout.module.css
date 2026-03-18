@@ -149,3 +149,41 @@
     display: none; /* Hide topbar on mobile for cleaner look */
   }
 }
+
+@media (max-width: 500px) {
+  .pageContent {
+    padding: 15px;
+  }
+  .brand {
+    padding: 20px 15px;
+  }
+  .nav {
+    padding: 15px 10px;
+  }
+  .sidebarFooter {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 300px) {
+  .pageContent {
+    padding: 10px;
+  }
+  .brand {
+    padding: 15px 10px;
+  }
+  .brand h2 {
+    font-size: 1.5rem;
+  }
+  .navLink {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  .sidebarFooter {
+    padding: 10px;
+  }
+  .logoutBtn {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}

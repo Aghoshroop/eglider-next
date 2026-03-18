@@ -110,3 +110,41 @@
   color: #888;
   margin-top: 20px;
 }
+
+@media (max-width: 500px) {
+  .loginCard {
+    padding: 30px 20px;
+  }
+  .brand h2 {
+    font-size: 1.8rem;
+  }
+  .inputGroup input {
+    padding: 12px;
+  }
+  .submitBtn {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 300px) {
+  .loginCard {
+    padding: 20px 15px;
+  }
+  .brand h2 {
+    font-size: 1.4rem;
+  }
+  .inputGroup input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .inputGroup label {
+    font-size: 0.75rem;
+  }
+  .submitBtn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  .form {
+    gap: 15px;
+  }
+}
