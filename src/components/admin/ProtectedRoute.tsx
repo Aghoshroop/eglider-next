@@ -13,7 +13,8 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // Physical lock: Must be logged in AND must be the specific admin email
-      if (!currentUser || currentUser.email !== "egliderenterprise@gmail.com") {
+      if (!currentUser || currentUser.email?.toLowerCase() !== "egliderenterprise@gmail.com") {
+        console.log("Access denied. Current user email:", currentUser?.email);
         router.push("/admin/login");
       } else {
         setUser(currentUser);

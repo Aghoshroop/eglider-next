@@ -20,6 +20,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      // Clear the dummy cookie used by middleware.ts
+      document.cookie = "adminAuth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
       router.push("/admin/login");
     } catch (error) {
       console.error("Error signing out:", error);

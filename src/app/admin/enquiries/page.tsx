@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { db } from "@/lib/firebase";
-import { collection, doc, setDoc, onSnapshot, query, orderBy, serverTimestamp, updateDoc } from "firebase/firestore";
+import { collection, doc, setDoc, onSnapshot, query, orderBy, serverTimestamp, updateDoc, deleteDoc, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import styles from "./enquiries.module.css";
 import parentStyles from "../admin.module.css";
@@ -116,6 +116,31 @@ export default function EnquiriesPage() {
     }
   };
 
+  const handleDeleteChat = async () => {
+    if (!activeChatId) return;
+    
+    if (!window.confirm("Are you sure you want to delete this enquiry chat? This action cannot be undone.")) {
+      return;
+    }
+
+    try {
+      // 1. Delete all messages in the subcollection
+      const messagesRef = collection(db, `chats/${activeChatId}/messages`);
+      const snapshot = await getDocs(messagesRef);
+      const deletePromises = snapshot.docs.map(docSnap => deleteDoc(docSnap.ref));
+      await Promise.all(deletePromises);
+
+      // 2. Delete the main chat document
+      const chatDocRef = doc(db, "chats", activeChatId);
+      await deleteDoc(chatDocRef);
+      
+      setActiveChatId(null);
+    } catch (err) {
+      console.error("Failed to delete chat", err);
+      alert("Failed to delete chat. Please try again.");
+    }
+  };
+
   const activeChat = chats.find(c => c.id === activeChatId);
 
   return (
@@ -164,13 +189,22 @@ export default function EnquiriesPage() {
           {activeChatId && activeChat ? (
             <>
               <div className={styles.panelHeader}>
-                <div className={styles.panelAvatar}>
-                  {activeChat.userName?.substring(0, 2).toUpperCase() || 'CU'}
+                <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+                  <div className={styles.panelAvatar}>
+                    {activeChat.userName?.substring(0, 2).toUpperCase() || 'CU'}
+                  </div>
+                  <div>
+                    <h3>{activeChat.userName || 'Customer'}</h3>
+                    <p>{activeChat.userEmail || 'No email provided'}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3>{activeChat.userName || 'Customer'}</h3>
-                  <p>{activeChat.userEmail || 'No email provided'}</p>
-                </div>
+                <button 
+                  onClick={handleDeleteChat} 
+                  className={styles.deleteChatBtn}
+                  title="Delete this chat entirely"
+                >
+                  Delete Chat
+                </button>
               </div>
 
               <div className={styles.messagesArea}>

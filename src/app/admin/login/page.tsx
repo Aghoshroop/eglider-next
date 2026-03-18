@@ -19,7 +19,10 @@ export default function AdminLogin() {
     setLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email.trim(), password);
+      // Set the dummy cookie expected by middleware.ts
+      document.cookie = "adminAuth=authenticated; path=/; max-age=86400;";
+      
       // Successful login will redirect via ProtectedRoute, or we can push explicitly:
       router.push("/admin");
     } catch (err: any) {

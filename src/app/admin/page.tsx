@@ -7,7 +7,7 @@ export default function AdminDashboard() {
   const { products, orders } = useAdmin();
 
   // Calculate live stats
-  const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+  const totalProductCost = products.reduce((sum, product) => sum + (product.price || 0), 0);
   const pendingOrders = orders.filter(o => o.status !== "Shipped" && o.status !== "Delivered");
   
   // Show up to 5 recent orders
@@ -19,9 +19,9 @@ export default function AdminDashboard() {
       
       <div className={styles.metricsGrid}>
         <div className={styles.metricCard}>
-          <h3>Total Revenue</h3>
-          <p className={styles.metricValue}>₹{totalRevenue.toFixed(2)}</p>
-          <span className={styles.metricChange}>All time</span>
+          <h3>Total Product Cost</h3>
+          <p className={styles.metricValue}>₹{totalProductCost.toFixed(2)}</p>
+          <span className={styles.metricChange}>Entire catalog</span>
         </div>
         <div className={styles.metricCard}>
           <h3>Active Products</h3>
