@@ -12,6 +12,10 @@ const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 export const metadata: Metadata = {
   title: "Eglider | Top Swimwear Manufacturer in Kolkata & West Bengal",
   description: "Eglider is the top swimwear manufacturer in Kolkata and West Bengal. We provide the best professional swimming sportswear, high-performance racing swimsuits, elite gear, and custom swimwear manufacturing services.",
+  verification: {
+    google: "03nHRsI7TfvR2m_cukdI5G5pDVTkgQuGmn8B0hE9AvA",
+  },
+
   keywords: [
     "top swimwear manufacturer in kolkata",
     "top swimwear manufacturer in west bengal",
@@ -45,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Eglider | Top Swimwear Manufacturer in Kolkata & West Bengal",
     description: "Eglider is the top swimwear manufacturer in Kolkata and West Bengal. We provide the best professional swimming sportswear, high-performance racing swimsuits, elite gear, and custom swimwear manufacturing services.",
-    url: "https://eglider.com",
+    url: "https://eglider.in",
     siteName: "Eglider Swimwear",
     locale: "en_US",
     type: "website",
@@ -75,7 +79,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://eglider.com',
+    canonical: 'https://eglider.in',
   },
 };
 
@@ -90,8 +94,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Eglider",
-    "url": "https://eglider.com",
-    "logo": "https://eglider.com/logo.png",
+    "url": "https://eglider.in",
+    "logo": "https://eglider.in/logo.png",
     "description": "Top swimwear manufacturer in Kolkata and West Bengal, offering professional swimming sportswear and custom manufacturing.",
     "address": {
       "@type": "PostalAddress",
@@ -104,7 +108,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${oswald.variable}`}>
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
