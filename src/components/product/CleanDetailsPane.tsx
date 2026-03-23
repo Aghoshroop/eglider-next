@@ -172,20 +172,12 @@ export default function CleanDetailsPane({ product }: CleanDetailsPaneProps) {
           <div className={`${styles.accordionContent} ${shippingOpen ? styles.contentOpen : ''}`}>
             <div className={styles.shippingGrid}>
                <div className={styles.shipItem}>
-                 <span className={styles.shipLabel}>Discount</span>
-                 <strong className={styles.shipValue}>Disc 50%</strong>
-               </div>
-               <div className={styles.shipItem}>
                  <span className={styles.shipLabel}>Package</span>
                  <strong className={styles.shipValue}>Regular Package</strong>
                </div>
                <div className={styles.shipItem}>
                  <span className={styles.shipLabel}>Delivery Time</span>
-                 <strong className={styles.shipValue}>3-4 Working Days</strong>
-               </div>
-               <div className={styles.shipItem}>
-                 <span className={styles.shipLabel}>Estimated Arrival</span>
-                 <strong className={styles.shipValue}>10 - 12 October 2024</strong>
+                 <strong className={styles.shipValue}>5 to 7 Business Days</strong>
                </div>
             </div>
           </div>
